@@ -1,0 +1,29 @@
+# Termux configuration for MangaEdit Pro
+# This file sets up the environment for optimal development
+
+# Node.js memory settings for mobile devices
+export NODE_OPTIONS="--max-old-space-size=2048"
+
+# Disable npm audit and funding messages for faster installs
+export npm_config_audit=false
+export npm_config_fund=false
+
+# Set Python path for native modules
+export PYTHON=python3
+
+# Optimize Git for Termux
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+
+# Project-specific aliases
+alias dev="./termux-dev.sh"
+alias build="./termux-build.sh"
+alias setup="./termux-setup.sh"
+
+echo "🚀 MangaEdit Pro Termux environment loaded!"
+echo "Available commands:"
+echo "  setup  - Run initial setup"
+echo "  dev    - Start development server"
+echo "  build  - Build for production"
