@@ -2,41 +2,78 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* MangaEdit Pro Design System - Professional manga editing aesthetics
+All colors MUST be HSL. Dark theme optimized for long editing sessions.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Deep space backgrounds for comfortable editing */
+    --background: 222 44% 7%;
+    --foreground: 213 100% 97%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system with subtle depth */
+    --card: 222 40% 9%;
+    --card-foreground: 213 100% 97%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover elements */
+    --popover: 222 40% 9%;
+    --popover-foreground: 213 100% 97%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary brand - Electric blue inspired by digital art */
+    --primary: 210 100% 56%;
+    --primary-foreground: 222 44% 7%;
+    --primary-glow: 210 100% 70%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Subtle purple undertones */
+    --secondary: 240 30% 20%;
+    --secondary-foreground: 213 100% 97%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted elements */
+    --muted: 222 40% 15%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Vibrant cyan for highlights */
+    --accent: 180 100% 50%;
+    --accent-foreground: 222 44% 7%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive actions */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 213 100% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs with subtle glow */
+    --border: 222 40% 20%;
+    --input: 222 40% 15%;
+    --ring: 210 100% 56%;
 
-    --radius: 0.5rem;
+    /* Professional radius */
+    --radius: 0.75rem;
+
+    /* Manga-specific design tokens */
+    --manga-panel: 222 40% 12%;
+    --manga-text: 60 10% 95%;
+    --manga-bubble: 0 0% 98%;
+    --manga-shadow: 222 44% 4%;
+    
+    /* Tool colors for different functions */
+    --tool-brush: 280 100% 65%;
+    --tool-eraser: 15 100% 65%;
+    --tool-clone: 120 60% 55%;
+    --tool-heal: 200 100% 60%;
+    
+    /* Gradients for beautiful effects */
+    --gradient-primary: linear-gradient(135deg, hsl(210 100% 56%), hsl(240 100% 65%));
+    --gradient-tool: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-panel: linear-gradient(180deg, hsl(var(--manga-panel)), hsl(222 40% 8%));
+    
+    /* Glowing effects */
+    --glow-primary: 0 0 20px hsl(210 100% 56% / 0.3);
+    --glow-accent: 0 0 15px hsl(180 100% 50% / 0.2);
+    --glow-tool: 0 0 10px hsl(var(--primary) / 0.4);
+    
+    /* Smooth animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -55,42 +92,31 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  /* Light theme for optional day editing */
+  .light {
+    --background: 210 20% 98%;
+    --foreground: 222 44% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 44% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 44% 12%;
+    --primary: 210 100% 45%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 222 44% 12%;
+    --muted: 210 40% 94%;
+    --muted-foreground: 215 16% 46%;
+    --accent: 180 100% 40%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 214 32% 88%;
+    --input: 214 32% 88%;
+    --ring: 210 100% 45%;
+    --manga-panel: 210 20% 96%;
+    --manga-text: 222 44% 15%;
+    --manga-bubble: 0 0% 2%;
+    --manga-shadow: 210 20% 90%;
   }
 }
 
@@ -100,6 +126,85 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow: hidden; /* Prevent scrolling on mobile */
+  }
+  
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary));
+    border-radius: 4px;
+    border: 2px solid hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary-glow));
+  }
+  
+  /* Touch-friendly mobile optimizations */
+  @media (max-width: 768px) {
+    body {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      overscroll-behavior: none;
+    }
+  }
+}
+
+@layer utilities {
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  
+  .glow-tool {
+    box-shadow: var(--glow-tool);
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-tool {
+    background: var(--gradient-tool);
+  }
+  
+  .gradient-panel {
+    background: var(--gradient-panel);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-fast {
+    transition: var(--transition-fast);
+  }
+  
+  .no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
 }
